@@ -21,13 +21,34 @@ class Main extends Component {
 	};
   render() { 
     return ( 
-      <div >
-        {this.state.articles.map(article => (
-          <ArticleCard key={article.url} article={article}/>
-          ))}
+      <div>
+
+        <div>
+        <select >
+          <option value="" selected>Select a country</option>
+          <option value="F">US</option>
+        </select>
+        
+        </div>
+
+
+        <div style={styles.articleCards} >
+          {this.state.articles.map(article => (
+            <ArticleCard key={article.url} article={article}/>
+            ))}
+        </div>
       </div>
     );
   }
 }
  
 export default Main;
+
+const styles = {}
+
+styles.articleCards = {
+  width: '100%',
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr 1fr',
+  gridGap: '10px'
+}
