@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {formattedDate} from './../service';
 
 class ArticleCard extends Component {
   state = {  }
@@ -10,10 +11,10 @@ class ArticleCard extends Component {
     const source = sourceKey.name
 
     return (
-      <div style={styles.cardOuter}>
-
-        <div style={styles.title}>
-          <a target="blank" href={url}>{source}>{title}</a>
+      <div style={styles.card}>
+        <div style={styles.content}>
+          <a target="blank" href={url} style={styles.link}>{description}</a>
+          <p>Posted on: {formattedDate(dateTime)}</p>
         </div>
       </div> );
   }
@@ -23,14 +24,20 @@ export default ArticleCard;
 
 const styles={}
 
-styles.cardOuter = {
-  display: 'grid',
-  gridTemplateRows: '200px 150px',
+styles.card = {
   width: '400px',
+  backgroundColor: 'gray',
+
 }
 
-styles.title = {
+styles.content = {
   gridRowStart: 2,
   position: 'relative',
   width: '100%',
+  color: 'white'
+}
+
+styles.link = {
+  color: 'white',
+  textDecoration: 'none',
 }

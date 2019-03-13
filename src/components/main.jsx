@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import ArticleCard from './articleCard'
 import NavBar from './navbar';
-import  {getCanadaNews} from './../service';
-import  {getNews} from './../service';
+import {getCanadaNews} from './../service';
+import {getNews} from './../service';
 
 
 class Main extends Component {
@@ -58,21 +58,20 @@ class Main extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div style={styles.body}>
       <NavBar
         updateCountry = {this.updateCountry}
         updateTopic = {this.updateTopic}
         updateSearch = {this.updateSearch}
         updateArticles = {this.updateArticles}
         getNews = {this.getNews}
-
       />
         <div style={styles.articleCards} >
           {this.state.articles.map(article => (
             <ArticleCard key={article.url} article={article}/>
             ))}
         </div>
-      </React.Fragment>
+      </div>
     );
   }
 }
@@ -81,10 +80,14 @@ export default Main;
 
 const styles = {}
 
+styles.body = {
+  backgroundColor: '#212121',
+
+}
+
 styles.articleCards = {
-  width: '500px',
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   gridGap: '30px',
-  margin: '30px auto'
+  margin: '0 auto'
 }
