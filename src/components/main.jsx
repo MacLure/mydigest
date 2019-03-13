@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ArticleCard from './articleCard'
-import NavBar from './navbar'
-
+import NavBar from './navbar';
 import  {getCanadaNews} from './../service';
 import  {getNews} from './../service';
 
@@ -50,17 +49,17 @@ class Main extends Component {
   }
 
   updateArticles = (e) => {
-    getNews(this.state.selectedCountry, this.state.selectedTopic, this.state.search) 
+    getNews(this.state.selectedCountry, this.state.selectedTopic, this.state.search)
     .then(articles => {
       this.setState({ articles, refreshing: false });
     })
     .catch(() => this.setState({ refreshing: false }));
   }
 
-  render() { 
-    return ( 
-      <div>
-      <NavBar 
+  render() {
+    return (
+      <React.Fragment>
+      <NavBar
         updateCountry = {this.updateCountry}
         updateTopic = {this.updateTopic}
         updateSearch = {this.updateSearch}
@@ -73,18 +72,19 @@ class Main extends Component {
             <ArticleCard key={article.url} article={article}/>
             ))}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
- 
+
 export default Main;
 
 const styles = {}
 
 styles.articleCards = {
-  width: '100%',
+  width: '500px',
   display: 'grid',
-  gridTemplateColumns: '1fr 1fr 1fr',
-  gridGap: '10px'
+  gridTemplateColumns: '1fr 1fr',
+  gridGap: '30px',
+  margin: '30px auto'
 }

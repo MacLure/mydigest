@@ -11,16 +11,9 @@ class ArticleCard extends Component {
 
     return (
       <div style={styles.cardOuter}>
-        <div style={styles.imageTitle}>
-          <div style={styles.title}>{title}</div>
-          <img style={styles.image} src={image} />
-        </div>
-        <div style={styles.description}>
-          {description}
-        <div>
-        </div>
-          <a target="blank" href={url}>{source}</a>
-          {dateTime}
+
+        <div style={styles.title}>
+          <a target="blank" href={url}>{source}>{title}</a>
         </div>
       </div> );
   }
@@ -33,35 +26,10 @@ const styles={}
 styles.cardOuter = {
   display: 'grid',
   gridTemplateRows: '200px 150px',
-  width: '300px',
-  boxShadow: '2px 2px 2px black'
-}
-
-styles.imageTitle = {
-  gridRowStart: 1,
-  position: 'relative',
-  width: '100%',
-  height: '200px',
-  overflow: 'hidden',
+  width: '400px',
 }
 
 styles.title = {
-  position: 'absolute',
-  display: 'flex',
-  flexStart: 'bottom',
-  width: '100%',
-  zIndex: 200,
-  color: 'white',
-  textShadow: '1px 1px 1px black'
-}
-
-styles.image = {
-  position: 'absolute',
-  width: '100%',
-  zIndex: 100,
-}
-
-styles.description = {
   gridRowStart: 2,
   position: 'relative',
   width: '100%',

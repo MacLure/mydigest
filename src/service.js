@@ -10,7 +10,7 @@ export async function getCanadaNews() {
 }
 
 export async function getNews(country, topic, query) {
-  let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=${topic}&q=${query}&apiKey=${key}`)
+  let result = await fetch(`${endPointRoot}/everything?country=${country}&category=${topic}&q=${query}&apiKey=${key}`)
   .then(response => response.json());
 	return result.articles;
 }
