@@ -14,3 +14,10 @@ export async function getNews(country, topic, query) {
   .then(response => response.json());
 	return result.articles;
 }
+
+export function formattedDate(date) {
+  const formattedDate = new Date(Date.parse(date))
+  const options = {year: 'numeric', month: 'short', day: 'numeric' }
+  return (formattedDate.toLocaleString('en', options))
+}
+

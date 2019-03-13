@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import  {formattedDate} from './../service';
 
 class ArticleCard extends Component {
   state = {  }
@@ -13,20 +14,24 @@ class ArticleCard extends Component {
       <div style={styles.cardOuter}>
         <div style={styles.imageTitle}>
           <div style={styles.title}>{title}</div>
-          <img style={styles.image} src={image} />
+          <img ref="image" style={styles.image} src={image} />
         </div>
         <div style={styles.description}>
           {description}
         <div>
         </div>
           <a target="blank" href={url}>{source}</a>
-          {dateTime}
+          {formattedDate(dateTime)}
         </div>
-      </div> );
+      </div>
+    );
+
+
   }
 }
 
 export default ArticleCard;
+
 
 const styles={}
 
