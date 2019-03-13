@@ -22,7 +22,6 @@ class ArticleCard extends Component {
           <a target="blank" href={url}>{source}</a>
           {dateTime}
         </div>
-
       </div> );
   }
 }
