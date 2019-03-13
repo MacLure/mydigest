@@ -4,12 +4,12 @@ class ArticleCard extends Component {
   state = {  }
 
 
-  render() { 
+  render() {
 
     const {title, author, description, content, url, urlToImage: image, source: sourceKey, publishedAt: dateTime} = this.props.article;
     const source = sourceKey.name
 
-    return ( 
+    return (
       <div style={styles.cardOuter}>
         <div style={styles.imageTitle}>
           <div style={styles.title}>{title}</div>
@@ -25,7 +25,7 @@ class ArticleCard extends Component {
       </div> );
   }
 }
- 
+
 export default ArticleCard;
 
 const styles={}
@@ -63,7 +63,6 @@ styles.image = {
 
 styles.description = {
   gridRowStart: 2,
-
   position: 'relative',
   width: '100%',
 }
