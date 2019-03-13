@@ -46,7 +46,7 @@ class Main extends Component {
   }
 
   updateSearch = (query) => {
-    this.setState({ search: query }, function() {this.updateArticles()})
+    this.setState({ search: query })
   }
 
   updateArticles = (e) => {
@@ -64,6 +64,7 @@ class Main extends Component {
         updateCountry = {this.updateCountry}
         updateTopic = {this.updateTopic}
         updateSearch = {this.updateSearch}
+        updateArticles = {this.updateArticles}
         getNews = {this.getNews}
 
       />

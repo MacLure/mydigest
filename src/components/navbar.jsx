@@ -10,7 +10,7 @@ class NavBar extends Component {
 
   render() { 
     return ( 
-      <div>
+      <div style={styles.navbar}>
         <select onChange={e => this.props.updateCountry(e.target.value)}>
           <option value="">Select a country</option>
           <option value='ae'>UAE</option>
@@ -78,12 +78,27 @@ class NavBar extends Component {
           <option value='science'>science</option>
           <option value='technology'>technology</option>
           <option value='sports'>sports</option>
-      </select>
-      <input onChange = {e => this.props.updateSearch(e.target.value)}type="text"></input>
-      <div onClick = {e => this.props.updateArticles(e)}>SEARCH</div>
-    </div>
+        </select>
+        <input onChange = {e => this.props.updateSearch(e.target.value)}type="text" placeholder="Search..."></input>
+        <div style={styles.searchSubmitButton} onClick = {e => this.props.updateArticles(e)}>SEARCH</div>
+      </div>
     );
   }
 }
  
 export default NavBar;
+
+const styles = {}
+
+styles.navbar = {
+  marginBottom: '10px',
+  padding: '10px',
+}
+
+styles.searchSubmitButton = {
+  display: 'inline-block',
+  backgroundColor: 'black',
+  color: 'white',
+  borderRadius: '3px',
+  padding: '5px'
+}
