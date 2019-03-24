@@ -96,62 +96,68 @@ class Main extends Component {
   render() { 
     return ( 
       <div>
-      <NavBar 
-        updateCountry = {this.updateCountry}
-        updateSearch = {this.updateSearch}
-        updateArticles = {this.updateArticles}
-        getNews = {this.getNews}
-      />
-      <div>マイ新聞</div>
-      <strong> ビジネス</strong>
-      <div >
+        <NavBar 
+          updateCountry = {this.updateCountry}
+          updateSearch = {this.updateSearch}
+          updateArticles = {this.updateArticles}
+          getNews = {this.getNews}
+        />
+        <div>マイ新聞</div>
+        <strong> ビジネス</strong>
+        <div >
           <div style={styles.articleCards} >
-          {this.state.businessArticles.map(article => (
-            <ArticleCard key={article.url} article={article}/>
+            {this.state.businessArticles.map(article => (
+              <ArticleCard key={article.url} article={article}/>
             ))}
+          </div>
         </div>
-      </div>
 
-      <strong>エンタメ</strong>
-      <div >
-      {this.state.businessArticles.map(article => (
-        <span>{article.title}<br /></span>
-        ))}
-    </div>
-    <strong>医療・健康</strong>
-    <div >
-      {this.state.healthArticles.map(article => (
-        <span>{article.title}<br /></span>
-        ))}
-    </div>
-    <strong>科学</strong>
-    <div >
-      {this.state.scienceArticles.map(article => (
-        <span>{article.title}<br /></span>
-        ))}
-    </div>
-    <strong>テクノロジー</strong>
-    <div >
-      {this.state.technologyArticles.map(article => (
-        <span>{article.title}<br /></span>
-        ))}
-    </div>
-    <strong>スポーツ</strong>
-    <div >
-      {this.state.sportsArticles.map(article => (
-        <span>{article.title}<br /></span>
-        ))}
-    </div>
-        <div style={styles.articleCards} >
-          {this.state.businessArticles.map(article => (
-            <ArticleCard key={article.url} article={article}/>
+        <strong>エンタメ</strong>
+        <div>
+          <div style={styles.articleCards} >
+            {this.state.businessArticles.map(article => (
+              <ArticleCard key={article.url} article={article}/>
             ))}
+          </div>
+        </div>
+        <strong>医療・健康</strong>
+        <div>
+          <div style={styles.articleCards} >
+            {this.state.healthArticles.map(article => (
+              <ArticleCard key={article.url} article={article}/>
+            ))}
+          </div>
+        </div>
+        <strong>科学</strong>
+        <div >
+          <div style={styles.articleCards} >
+            {this.state.scienceArticles.map(article => (
+              <ArticleCard key={article.url} article={article}/>
+            ))}
+          </div>
+        </div>
+        <strong>テクノロジー</strong>
+        <div>
+          <div style={styles.articleCards} >
+            {this.state.technologyArticles.map(article => (
+              <ArticleCard key={article.url} article={article}/>
+            ))}
+          </div>
+        </div>
+        <strong>スポーツ</strong>
+        <div>
+          <div style={styles.articleCards} >
+            {this.state.sportsArticles.map(article => (
+              <ArticleCard key={article.url} article={article}/>
+            ))}
+          </div>
         </div>
       </div>
-    );
+      );
+    }
   }
-}
- 
+
+
 export default Main;
 
 const styles = {}
