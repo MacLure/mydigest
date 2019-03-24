@@ -68,8 +68,8 @@ class NavBar extends Component {
           <option value='ve'>Venezuela</option>
           <option value='za'>South Africa</option>
         </select>
-        <input onChange = {e => this.props.updateSearch(e.target.value)}type="text" placeholder="Search..."></input>
-        <div style={styles.searchSubmitButton} onClick = {e => this.props.updateArticles(e)}>SEARCH</div>
+        <input onChange = {e => this.props.updateSearch(e.target.value)}type="text" placeholder="キーワードを入力"></input>
+        <div style={styles.searchSubmitButton} onClick = {e => this.props.updateArticles(e)}>検索</div>
       </div>
     );
   }
