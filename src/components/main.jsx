@@ -3,7 +3,12 @@ import ArticleCard from './articleCard'
 import NavBar from './navbar'
 
 import  {getCanadaNews} from './../service';
-import  {getNews} from './../service';
+import  {getBusinessNews} from './../service';
+import  {getEntertainmentNews} from './../service';
+import  {getHealthNews} from './../service';
+import  {getScienceNews} from './../service';
+import  {getTechnologyNews} from './../service';
+import  {getSportsNews} from './../service';
 
 
 class Main extends Component {
@@ -11,15 +16,19 @@ class Main extends Component {
     super(props)
 
     this.state = {
-      articles: [],
-      selectedCountry: null,
-      selectedTopic: 'general',
+      businessArticles: [],
+      entertainmentArticles: [],
+      healthArticles: [],
+      scienceArticles: [],
+      technologyArticles: [],
+      sportsArticles: [],
+
+      selectedCountry: 'ca',
       refreshing: true,
       search: ''
     };
 
     this.updateCountry = this.updateCountry.bind(this)
-    this.updateTopic = this.updateTopic.bind(this)
     this.updateSearch = this.updateSearch.bind(this)
     this.updateArticles = this.updateArticles.bind(this)
 
@@ -31,8 +40,8 @@ class Main extends Component {
 
 	fetchNews = () => {
 		getCanadaNews()
-			.then(articles => {
-				this.setState({ articles, refreshing: false });
+			.then(businessArticles => {
+				this.setState({ businessArticles, refreshing: false });
 			})
 			.catch(() => this.setState({ refreshing: false }));
   };
@@ -41,20 +50,47 @@ class Main extends Component {
     this.setState({ selectedCountry: country }, function() {this.updateArticles()})
   }
 
-  updateTopic = (topic) => {
-    this.setState({ selectedTopic: topic }, function() {this.updateArticles()})
-  }
-
   updateSearch = (query) => {
     this.setState({ search: query })
   }
 
   updateArticles = (e) => {
-    getNews(this.state.selectedCountry, this.state.selectedTopic, this.state.search) 
-    .then(articles => {
-      this.setState({ articles, refreshing: false });
+    getBusinessNews(this.state.selectedCountry, this.state.search) 
+    .then(businessArticles => {
+      this.setState({ businessArticles, refreshing: false });
     })
     .catch(() => this.setState({ refreshing: false }));
+
+    getEntertainmentNews(this.state.selectedCountry, this.state.search) 
+    .then(entertainmentArticles => {
+      this.setState({ entertainmentArticles, refreshing: false });
+    })
+    .catch(() => this.setState({ refreshing: false }));
+
+    getHealthNews(this.state.selectedCountry, this.state.search) 
+    .then(healthArticles => {
+      this.setState({ healthArticles, refreshing: false });
+    })
+    .catch(() => this.setState({ refreshing: false }));
+
+    getScienceNews(this.state.selectedCountry, this.state.search) 
+    .then(scienceArticles => {
+      this.setState({ scienceArticles, refreshing: false });
+    })
+    .catch(() => this.setState({ refreshing: false }));
+
+    getTechnologyNews(this.state.selectedCountry, this.state.search) 
+    .then(technologyArticles => {
+      this.setState({ technologyArticles, refreshing: false });
+    })
+    .catch(() => this.setState({ refreshing: false }));
+
+    getSportsNews(this.state.selectedCountry, this.state.search) 
+    .then(sportsArticles => {
+      this.setState({ sportsArticles, refreshing: false });
+    })
+    .catch(() => this.setState({ refreshing: false }));
+
   }
 
   render() { 
@@ -62,14 +98,52 @@ class Main extends Component {
       <div>
       <NavBar 
         updateCountry = {this.updateCountry}
-        updateTopic = {this.updateTopic}
         updateSearch = {this.updateSearch}
         updateArticles = {this.updateArticles}
         getNews = {this.getNews}
 
       />
+      <strong>Business:</strong>
+      <div >
+          <div style={styles.articleCards} >
+          {this.state.businessArticles.map(article => (
+            <ArticleCard key={article.url} article={article}/>
+            ))}
+        </div>
+      </div>
+
+      <strong>Entertainment:</strong>
+      <div >
+      {this.state.businessArticles.map(article => (
+        <span>{article.title}<br /></span>
+        ))}
+    </div>
+    <strong>Health:</strong>
+    <div >
+      {this.state.healthArticles.map(article => (
+        <span>{article.title}<br /></span>
+        ))}
+    </div>
+    <strong>Science:</strong>
+    <div >
+      {this.state.scienceArticles.map(article => (
+        <span>{article.title}<br /></span>
+        ))}
+    </div>
+    <strong>Technology:</strong>
+    <div >
+      {this.state.technologyArticles.map(article => (
+        <span>{article.title}<br /></span>
+        ))}
+    </div>
+    <strong>Sports:</strong>
+    <div >
+      {this.state.sportsArticles.map(article => (
+        <span>{article.title}<br /></span>
+        ))}
+    </div>
         <div style={styles.articleCards} >
-          {this.state.articles.map(article => (
+          {this.state.businessArticles.map(article => (
             <ArticleCard key={article.url} article={article}/>
             ))}
         </div>
@@ -84,7 +158,10 @@ const styles = {}
 
 styles.articleCards = {
   width: '100%',
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr 1fr',
+  display: 'flex',
+  flexStart: 'left',
+  flexWrap: 'wrap',
+  flexDirection: 'right',
+  justifyContent: 'space-around',
   gridGap: '10px'
 }

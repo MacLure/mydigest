@@ -9,12 +9,48 @@ export async function getCanadaNews() {
 	return result.articles;
 }
 
-export async function getNews(country, topic, query) {
-  let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=${topic}&q=${query}&apiKey=${key}`)
+// export async function getNews(country, topic, query) {
+//   let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=${topic}&q=${query}&apiKey=${key}`)
+//   .then(response => response.json());
+// 	return result.articles;
+// }
+
+
+export async function getBusinessNews(country, query) {
+  let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=business&q=${query}&apiKey=${key}`)
   .then(response => response.json());
 	return result.articles;
 }
 
+export async function getEntertainmentNews(country, query) {
+  let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=entertainment&q=${query}&apiKey=${key}`)
+  .then(response => response.json());
+	return result.articles;
+}
+
+export async function getHealthNews(country, query) {
+  let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=health&q=${query}&apiKey=${key}`)
+  .then(response => response.json());
+	return result.articles;
+}
+
+export async function getScienceNews(country, query) {
+  let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=science&q=${query}&apiKey=${key}`)
+  .then(response => response.json());
+	return result.articles;
+}
+
+export async function getTechnologyNews(country, query) {
+  let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=technology&q=${query}&apiKey=${key}`)
+  .then(response => response.json());
+	return result.articles;
+}
+
+export async function getSportsNews(country, query) {
+  let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=sports&q=${query}&apiKey=${key}`)
+  .then(response => response.json());
+	return result.articles;
+}
 export function formattedDate(date) {
   const formattedDate = new Date(Date.parse(date))
   const options = {year: 'numeric', month: 'short', day: 'numeric' }
