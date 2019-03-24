@@ -9,12 +9,11 @@ export async function getCanadaNews() {
 	return result.articles;
 }
 
-// export async function getNews(country, topic, query) {
-//   let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=${topic}&q=${query}&apiKey=${key}`)
-//   .then(response => response.json());
-// 	return result.articles;
-// }
-
+export async function getWeather(location) {
+  let result = await fetch(`https://www.metaweather.com/api/location/${location}/`)
+  .then(response => response.json());
+  return result
+}
 
 export async function getBusinessNews(country, query) {
   let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=business&q=${query}&apiKey=${key}`)

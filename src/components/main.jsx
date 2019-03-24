@@ -10,6 +10,8 @@ import  {getScienceNews} from './../service';
 import  {getTechnologyNews} from './../service';
 import  {getSportsNews} from './../service';
 
+import  {getWeather} from './../service';
+
 
 class Main extends Component {
   constructor(props) {
@@ -22,6 +24,7 @@ class Main extends Component {
       scienceArticles: [],
       technologyArticles: [],
       sportsArticles: [],
+      weather: '',
 
       selectedCountry: 'ca',
       refreshing: true,
@@ -35,7 +38,8 @@ class Main extends Component {
   }
 
 	componentDidMount = () => {
-		this.fetchNews();
+    this.fetchNews();
+    this.getWeather();
 	};
 
 	fetchNews = () => {
@@ -45,6 +49,14 @@ class Main extends Component {
 			})
 			.catch(() => this.setState({ refreshing: false }));
   };
+
+  getWeather = () => {
+    getWeather('4118')
+      .then(weather => {
+        console.log(weather)
+        this.setState({weather: weather})
+      })
+  }
 
   updateCountry = (country) => {
     this.setState({ selectedCountry: country }, function() {this.updateArticles()})
