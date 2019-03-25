@@ -19,7 +19,10 @@ const Header = () => {
           <div style={styles.year}>{year} / 平成{heisei}</div>
           <div style={styles.monthDay}>{month}{day}</div>
         </div>
-        <div style={styles.weekDay}>({japaneseWeekday()})</div>
+        <div>
+          <div style={styles.weekDay}>{japaneseWeekday()}</div>
+          <div style={styles.youbi}>曜日</div>
+        </div>
       </div>
       <div style={styles.bannerBox}>
         <div style={styles.bannerGrid}>
@@ -56,8 +59,14 @@ styles.monthDay = {
 }
 
 styles.weekDay = {
-  gridColumnStart: 2,
-  fontSize: '1.5em',
+  textAlign: 'center',
+  fontSize: '1em',
+}
+
+styles.youbi = {
+  textAlign: 'center',
+  fontSize: '0.5em',
+  marginTop: '-3px',
 }
 
 styles.bannerBox = {

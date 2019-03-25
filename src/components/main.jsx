@@ -125,7 +125,7 @@ class Main extends Component {
           </div>
         </div>
 
-        <strong>エンタメ</strong>
+        <div style={styles.section}> エンタメ</div>
         <div>
           <div style={styles.articleCards} >
             {this.state.businessArticles.map(article => (
@@ -133,7 +133,7 @@ class Main extends Component {
             ))}
           </div>
         </div>
-        <strong>医療・健康</strong>
+        <div style={styles.section}>医療・健康</div>
         <div>
           <div style={styles.articleCards} >
             {this.state.healthArticles.map(article => (
@@ -141,7 +141,7 @@ class Main extends Component {
             ))}
           </div>
         </div>
-        <strong>科学</strong>
+        <div style={styles.section}>科学</div>
         <div >
           <div style={styles.articleCards} >
             {this.state.scienceArticles.map(article => (
@@ -149,7 +149,7 @@ class Main extends Component {
             ))}
           </div>
         </div>
-        <strong>テクノロジー</strong>
+        <div style={styles.section}> テクノロジー</div>
         <div>
           <div style={styles.articleCards} >
             {this.state.technologyArticles.map(article => (
@@ -157,7 +157,7 @@ class Main extends Component {
             ))}
           </div>
         </div>
-        <strong>スポーツ</strong>
+        <div style={styles.section}> スポーツ</div>
         <div>
           <div style={styles.articleCards} >
             {this.state.sportsArticles.map(article => (
