@@ -46,7 +46,7 @@ styles.headerGrid = {
 
 styles.date = {
   display: 'grid',
-  gridTemplateColumns: 'auto auto',
+  gridTemplateColumns: '75px 30px',
   width: '120px',
 }
 

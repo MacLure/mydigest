@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ArticleCard from './articleCard'
 import NavBar from './navbar'
 import Header from './header'
+import Currencies from './currencies'
+
 
 import  {getCanadaNews} from './../service';
 import  {getBusinessNews} from './../service';
@@ -117,6 +119,7 @@ class Main extends Component {
         />
         <Header />
         <div style={styles.section}> ビジネス</div>
+        <Currencies />
         <div >
           <div style={styles.articleCards} >
             {this.state.businessArticles.map(article => (

@@ -1,7 +1,7 @@
 
 const endPointRoot = "https://newsapi.org/v2"
 const key = '086a7a7579144fe6a410f78be82dd0ff'
-
+const currenciesKey = '0ac8dc7e6d8fdcb8572ff00e3f012059'
 
 export async function getCanadaNews() {
   let result = await fetch(`${endPointRoot}/top-headlines?country=jp&apiKey=${key}`)
@@ -83,3 +83,18 @@ export function japaneseWeekday(date) {
 
   return (`${dayNames[weekday]}`)
 }
+
+
+
+export async function getCurrencyRates() {
+  let result = await fetch(`http://www.apilayer.net/api/live?access_key=${currenciesKey}`)
+  .then(response => response.json());
+	return result.quotes;
+}
+
+// export async function getCurrencyList() {
+//   let result = await fetch(`http://www.apilayer.net/api/list?access_key=${currenciesKey}`)
+//   .then(response => response.json());
+// 	return result.currencies;
+// }
+
