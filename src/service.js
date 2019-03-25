@@ -2,6 +2,7 @@
 const endPointRoot = "https://newsapi.org/v2"
 const key = '086a7a7579144fe6a410f78be82dd0ff'
 const currenciesKey = '0ac8dc7e6d8fdcb8572ff00e3f012059'
+const weatherKey = '53922eaaa9c69ae715892dc3b0b1dcfd'
 
 export async function getCanadaNews() {
   let result = await fetch(`${endPointRoot}/top-headlines?country=jp&apiKey=${key}`)
@@ -9,11 +10,7 @@ export async function getCanadaNews() {
 	return result.articles;
 }
 
-export async function getWeather(location) {
-  let result = await fetch(`https://www.metaweather.com/api/location/${location}/`)
-  .then(response => response.json());
-  return result
-}
+
 
 export async function getBusinessNews(country, query) {
   let result = await fetch(`${endPointRoot}/top-headlines?country=${country}&category=business&q=${query}&apiKey=${key}`)
@@ -84,10 +81,15 @@ export function japaneseWeekday(date) {
   return (`${dayNames[weekday]}`)
 }
 
-
-
 export async function getCurrencyRates() {
   let result = await fetch(`http://www.apilayer.net/api/live?access_key=${currenciesKey}`)
   .then(response => response.json());
 	return result.quotes;
 }
+
+export async function getWeather() {
+  let result = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Toronto&APPID=53922eaaa9c69ae715892dc3b0b1dcfd`)
+  .then(response => response.json());
+	return result;
+}
+

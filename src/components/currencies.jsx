@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import {getCurrencyRates} from './../service';
 
 
-class Currencies extends Component {  constructor(props) {
-  super(props)
+class Currencies extends Component {
+  constructor(props) {
+    super(props)
 
-  this.state = { 
-    currencyRates: {},
-   }
+    this.state = { 
+      currencyRates: {},
+    }
 
   }
 

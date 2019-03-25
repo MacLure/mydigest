@@ -3,6 +3,7 @@ import ArticleCard from './articleCard'
 import NavBar from './navbar'
 import Header from './header'
 import Currencies from './currencies'
+import Weather from './weather'
 
 
 import  {getCanadaNews} from './../service';
@@ -12,9 +13,6 @@ import  {getHealthNews} from './../service';
 import  {getScienceNews} from './../service';
 import  {getTechnologyNews} from './../service';
 import  {getSportsNews} from './../service';
-
-import  {getWeather} from './../service';
-
 
 class Main extends Component {
   constructor(props) {
@@ -42,7 +40,6 @@ class Main extends Component {
 
 	componentDidMount = () => {
     this.fetchNews();
-    this.getWeather();
 	};
 
 	fetchNews = () => {
@@ -53,13 +50,6 @@ class Main extends Component {
 			.catch(() => this.setState({ refreshing: false }));
   };
 
-  getWeather = () => {
-    getWeather('4118')
-      .then(weather => {
-        console.log(weather)
-        this.setState({weather: weather})
-      })
-  }
 
   updateCountry = (country) => {
     this.setState({ selectedCountry: country }, function() {this.updateArticles()})
@@ -118,6 +108,7 @@ class Main extends Component {
           getNews = {this.getNews}
         />
         <Header />
+        <Weather />
         <div style={styles.section}> ビジネス</div>
         <Currencies />
         <div >
