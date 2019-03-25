@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ArticleCard from './articleCard'
 import NavBar from './navbar'
+import Header from './header'
 
 import  {getCanadaNews} from './../service';
 import  {getBusinessNews} from './../service';
@@ -114,7 +115,7 @@ class Main extends Component {
           updateArticles = {this.updateArticles}
           getNews = {this.getNews}
         />
-        <div>マイ新聞</div>
+        <Header />
         <strong> ビジネス</strong>
         <div >
           <div style={styles.articleCards} >

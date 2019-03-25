@@ -12,7 +12,7 @@ class NavBar extends Component {
     return ( 
       <div style={styles.navbar}>
         <select onChange={e => this.props.updateCountry(e.target.value)}>
-          <option value="">Select a country</option>
+          <option value="">国</option>
           <option value='ae'>UAE</option>
           <option value='ar'>Argentina</option>
           <option value='at'>Austria</option>
@@ -38,7 +38,7 @@ class NavBar extends Component {
           <option value='il'>Ireland</option>
           <option value='in'>India</option>
           <option value='it'>Italy</option>
-          <option value='jp'>Japan</option>
+          <option value='jp'>日本</option>
           <option value='kr'>South Korea</option>
           <option value='lt'>Lithuania</option>
           <option value='lv'>Latvia</option>
