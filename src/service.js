@@ -4,7 +4,7 @@ const key = '086a7a7579144fe6a410f78be82dd0ff'
 
 
 export async function getCanadaNews() {
-  let result = await fetch(`${endPointRoot}/top-headlines?country=ca&apiKey=${key}`)
+  let result = await fetch(`${endPointRoot}/top-headlines?country=jp&apiKey=${key}`)
   .then(response => response.json());
 	return result.articles;
 }

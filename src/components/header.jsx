@@ -32,6 +32,7 @@ styles.headerR = {
   gridRowStart: 1,
   writingMode: 'vertical-rl',
   textOrientation: 'upright',
+  fontWeight: '900',
   margin: '0 -5px',
   fontSize: '2em',
 }
@@ -41,6 +42,7 @@ styles.headerL = {
   gridRowStart: 1,
   writingMode: 'vertical-rl',
   textOrientation: 'upright',
+  fontWeight: '900',
   margin: '0 -5px',
   fontSize: '2em',
 }

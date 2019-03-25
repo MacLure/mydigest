@@ -14,6 +14,7 @@ class ArticleCard extends Component {
       <div style={styles.cardOuter}>
         <div style={styles.imageTitle}>
           <div style={styles.title}>{title}</div>
+          <div style={styles.titleGradient}></div>
           <img ref="image" style={styles.image} src={image} />
         </div>
         <div style={styles.description}>
@@ -56,6 +57,8 @@ styles.title = {
   flexStart: 'bottom',
   width: '100%',
   zIndex: 200,
+  writingMode: 'vertical-rl',
+  textOrientation: 'upright',
   color: 'white',
   textShadow: '1px 1px 1px black'
 }
@@ -66,8 +69,45 @@ styles.image = {
   zIndex: 100,
 }
 
+styles.titleGradient = {
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  backgroundImage: 'linear-gradient( 90deg, rgba(0,0,0,0) 50%, rgba(0,0,0,1) )',
+  zIndex: 150,
+}
+
 styles.description = {
   gridRowStart: 2,
   position: 'relative',
   width: '100%',
+}
+
+styles.headerBox = {
+  display: 'inline-block',
+  border: '2px solid black',
+  padding: '5px',
+}
+
+styles.headerGrid = {
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+}
+
+styles.headerR = {
+  gridColumnStart: 2,
+  gridRowStart: 1,
+  writingMode: 'vertical-rl',
+  textOrientation: 'upright',
+  margin: '0 -5px',
+  fontSize: '2em',
+}
+
+styles.headerL = {
+  gridColumnStart: 1,
+  gridRowStart: 1,
+  writingMode: 'vertical-rl',
+  textOrientation: 'upright',
+  margin: '0 -5px',
+  fontSize: '2em',
 }
