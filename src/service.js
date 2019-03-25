@@ -91,10 +91,3 @@ export async function getCurrencyRates() {
   .then(response => response.json());
 	return result.quotes;
 }
-
-// export async function getCurrencyList() {
-//   let result = await fetch(`http://www.apilayer.net/api/list?access_key=${currenciesKey}`)
-//   .then(response => response.json());
-// 	return result.currencies;
-// }
-
