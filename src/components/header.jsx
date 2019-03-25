@@ -1,11 +1,31 @@
 import React from 'react';
+import {japaneseWeekday} from './../service';
+
+const today = new Date();
+const dd = String(today.getDate()).padStart(2, '0');
+const mm = String(today.getMonth() + 1).padStart(2, '0');
+const yyyy = today.getFullYear();
+
+const year = yyyy + '年'
+const month = mm + '月'
+const day = dd + '日'
+const heisei = yyyy - 1989
 
 const Header = () => {
   return ( 
-    <div style={styles.headerBox}>
-      <div style={styles.headerGrid}>
-        <div style={styles.headerR}>マイ</div>
-        <div style={styles.headerL}>新聞</div>
+    <div style={styles.headerGrid}>
+      <div style = {styles.date}>
+        <div>
+          <div style={styles.year}>{year} / 平成{heisei}</div>
+          <div style={styles.monthDay}>{month}{day}</div>
+        </div>
+        <div style={styles.weekDay}>({japaneseWeekday()})</div>
+      </div>
+      <div style={styles.bannerBox}>
+        <div style={styles.bannerGrid}>
+          <div style={styles.headerR}>マイ</div>
+          <div style={styles.headerL}>新聞</div>
+        </div>
       </div>
     </div>
    );
@@ -16,13 +36,39 @@ export default Header;
 
 const styles = {}
 
-styles.headerBox = {
+styles.headerGrid = {
+  display: 'grid',
+  gridTemplateColumns: 'auto, 50px',
+}
+
+styles.date = {
+  display: 'grid',
+  gridTemplateColumns: 'auto auto',
+  width: '120px',
+}
+
+styles.year = {
+  fontSize: '0.5em',
+}
+
+styles.monthDay = {
+  fontSize: '1em',
+}
+
+styles.weekDay = {
+  gridColumnStart: 2,
+  fontSize: '1.5em',
+}
+
+styles.bannerBox = {
+  gridColumnStart: 2,
+  width: '60px',
   display: 'inline-block',
   border: '2px solid black',
   padding: '5px',
 }
 
-styles.headerGrid = {
+styles.bannerGrid = {
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
 }

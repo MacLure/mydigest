@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  {formattedDate} from './../service';
+import  {japaneseDate} from './../service';
 
 class ArticleCard extends Component {
   state = {  }
@@ -22,7 +22,7 @@ class ArticleCard extends Component {
         <div>
         </div>
           <a target="blank" href={url}>{source}</a>
-          {formattedDate(dateTime)}
+          {japaneseDate(dateTime)}
         </div>
       </div>
     );
@@ -57,6 +57,7 @@ styles.title = {
   flexStart: 'bottom',
   width: '100%',
   zIndex: 200,
+  margin: '5px',
   writingMode: 'vertical-rl',
   textOrientation: 'upright',
   color: 'white',

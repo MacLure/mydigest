@@ -56,3 +56,30 @@ export function formattedDate(date) {
   return (formattedDate.toLocaleString('en', options))
 }
 
+export function japaneseDate(date) {
+  const japaneseDate = new Date(Date.parse(date))
+  const dd = String(japaneseDate.getDate()).padStart(2, '0');
+  const mm = String(japaneseDate.getMonth() + 1).padStart(2, '0');
+  const yyyy = japaneseDate.getFullYear();
+
+  const year = yyyy + '年'
+  const month = mm + '月'
+  const day = dd + '日'
+  return (`${year}${month}${day}`)
+}
+
+export function japaneseWeekday(date) {
+  const weekday = new Date().getDay();
+
+  const dayNames = {
+    0: '日',
+    1: '月',
+    2: '火',
+    3: '水',
+    4: '木',
+    5: '金',
+    6: '土',
+  }
+
+  return (`${dayNames[weekday]}`)
+}

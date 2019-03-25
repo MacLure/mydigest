@@ -116,7 +116,7 @@ class Main extends Component {
           getNews = {this.getNews}
         />
         <Header />
-        <strong> ビジネス</strong>
+        <div style={styles.section}> ビジネス</div>
         <div >
           <div style={styles.articleCards} >
             {this.state.businessArticles.map(article => (
@@ -174,6 +174,13 @@ class Main extends Component {
 export default Main;
 
 const styles = {}
+
+styles.section = {
+  backgroundColor: 'black',
+  color: 'white',
+  fontSize: '1.5em',
+  fontWeight: 600,
+}
 
 styles.articleCards = {
   width: '100%',
