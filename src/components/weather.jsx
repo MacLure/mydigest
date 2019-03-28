@@ -26,7 +26,6 @@ class Weather extends Component {
 	getWeather = () => {
 		getWeather()
 			.then(weather => {
-        console.log(weather)
 				this.setState({
           weather: weather.weather[0],
           tempPerc: weather.main,
@@ -37,16 +36,27 @@ class Weather extends Component {
   };
 
   conditions = {
-  Clear: sunny,
-  Clouds: cloudy,
-  Rain: rainy,
-  Drizzle: rainy,
-  Thunderstorm: lightning,
-  Snow: snowy,
-  Mist: haze,
-  Haze: haze,
-  Fog: haze,
+    Clear: sunny,
+    Clouds: cloudy,
+    Rain: rainy,
+    Drizzle: rainy,
+    Thunderstorm: lightning,
+    Snow: snowy,
+    Mist: haze,
+    Haze: haze,
+    Fog: haze,
+  }
 
+  conditionColors = {
+    Clear: 'orange',
+    Clouds: 'grey',
+    Rain: 'royalblue',
+    Drizzle: 'royalblue',
+    Thunderstorm:'navy',
+    Snow: 'skyblue',
+    Mist: 'lightgrey',
+    Haze: 'lightgrey',
+    Fog: 'lightgrey',
   }
 
   render() { 
@@ -55,13 +65,14 @@ class Weather extends Component {
     const tempMax = Math.round(this.state.tempPerc.temp_max-273.15)
 
     return ( 
-      <div>
-        <div style={styles.weatherIcon}>
+      <div style={styles.weatherGrid}>
+        <div style={styles.cityFlex}>トロント</div>
+        <div style={{...styles.weatherIcon, backgroundColor: this.conditionColors[weather]}}>
           <img style={styles.weatherSVG} src={this.conditions[weather]} />
         </div>
-        <div>
-          <div>{tempMax}<sup>o</sup>C</div>
-          <div>{tempMin}<sup>o</sup>C</div>
+        <div style={styles.tempFlex}>
+          <div style={styles.temp}>{tempMax}<sup>o</sup>C</div>
+          <div style={styles.temp}>{tempMin}<sup>o</sup>C</div>
         </div>
       </div>
      );
@@ -72,10 +83,28 @@ export default Weather;
 
 const styles = {}
 
+styles.weatherGrid = {
+  display: 'grid',
+  gridTemplateColumns: '90px 40px 40px',
+  width: '120px',
+}
+
+styles.cityFlex = {
+  display: 'flex',
+  flexFlow: 'column nowrap',
+  justifyContent: 'center',
+  fontSize: '0.8em',
+}
+
+styles.cityName = {
+  fontSize: '0.9em',
+}
+
 styles.weatherIcon = {
   width: '30px',
   height: '30px',
   backgroundColor: 'black',
+  borderRadius: '2px',
 
   display: 'flex',
   flexFlow: 'column nowrap',
@@ -86,4 +115,15 @@ styles.weatherIcon = {
 styles.weatherSVG = {
   width: '70%',
   height: '70%',
+}
+
+styles.tempFlex = {
+  display: 'flex',
+  flexFlow: 'column nowrap',
+  justifyContent: 'center',
+  alignItems: 'center',
+}
+
+styles.temp = {
+  fontSize: '0.7em',
 }
