@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import {getWeather} from './../service'; 
 import cloudy from './../assets/weatherIcons/cloudy.svg'
+import cloudysunny from './../assets/weatherIcons/cloudysunny.svg'
+import haze from './../assets/weatherIcons/haze.svg'
+import lightning from './../assets/weatherIcons/lightning.svg'
+import rainy from './../assets/weatherIcons/rainy.svg'
+import snowy from './../assets/weatherIcons/snowy.svg'
+import sunny from './../assets/weatherIcons/sunny.svg'
 
 class Weather extends Component {
   constructor(props) {
@@ -30,17 +36,18 @@ class Weather extends Component {
       .catch(() => this.setState({ refreshing: false }));
   };
 
-  conditions = [
-  'clear sky',
-  'few clouds',
-  'scattered clouds',
-  'broken clouds',
-  'shower rain',
-  'rain',
-  'thunderstorm',
-  'snow',
-  'mist',
-  ]
+  conditions = {
+  Clear: sunny,
+  Clouds: cloudy,
+  Rain: rainy,
+  Drizzle: rainy,
+  Thunderstorm: lightning,
+  Snow: snowy,
+  Mist: haze,
+  Haze: haze,
+  Fog: haze,
+
+  }
 
   render() { 
     const weather = this.state.weather.main
@@ -50,10 +57,12 @@ class Weather extends Component {
     return ( 
       <div>
         <div style={styles.weatherIcon}>
-          <img style={styles.weatherSVG} src={cloudy} />
+          <img style={styles.weatherSVG} src={this.conditions[weather]} />
         </div>
-        <div>{tempMax}<sup>o</sup>C</div>
-        <div>{tempMin}<sup>o</sup>C</div>
+        <div>
+          <div>{tempMax}<sup>o</sup>C</div>
+          <div>{tempMin}<sup>o</sup>C</div>
+        </div>
       </div>
      );
   }
