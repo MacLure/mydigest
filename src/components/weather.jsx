@@ -44,15 +44,16 @@ class Weather extends Component {
 
   render() { 
     const weather = this.state.weather.main
-    const temp = (this.state.tempPerc.temp-273.15).toFixed(2)
+    const tempMin = Math.round(this.state.tempPerc.temp_min-273.15)
+    const tempMax = Math.round(this.state.tempPerc.temp_max-273.15)
 
     return ( 
       <div>
         <div style={styles.weatherIcon}>
           <img style={styles.weatherSVG} src={cloudy} />
         </div>
-        <div>{weather}</div>
-        <div>{temp}<sup>o</sup>C</div>
+        <div>{tempMax}<sup>o</sup>C</div>
+        <div>{tempMin}<sup>o</sup>C</div>
       </div>
      );
   }
@@ -63,11 +64,17 @@ export default Weather;
 const styles = {}
 
 styles.weatherIcon = {
-  width: '10px',
-  height: '10px',
+  width: '30px',
+  height: '30px',
+  backgroundColor: 'black',
+
+  display: 'flex',
+  flexFlow: 'column nowrap',
+  justifyContent: 'center',
+  alignItems: 'center',
 }
 
 styles.weatherSVG = {
-  width: '100%',
-  height: '100%',
+  width: '70%',
+  height: '70%',
 }
